@@ -1,0 +1,184 @@
+@import url("./base.css");
+
+/* ───── f 幣列 ───── */
+.coin-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: auto;
+}
+.coin-info img {
+  width: 20px;
+  height: 20px;
+}
+.coin-count {
+  font-weight: 600;
+}
+.coin-link {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+.coin-link img {
+  width: 9px;
+  height: 9px;
+}
+
+/* ───── Banner ───── */
+.banner-wrapper {
+  position: relative;
+  background: var(--bg);
+}
+.banner-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.banner-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  height: 180px;
+  padding: 8px 12px;
+}
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+.banner-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  transition: 0.2s;
+}
+.dot.active {
+  background: var(--red);
+}
+.banner-underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+.banner-underline::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--red);
+  margin: 0 auto -2px;
+}
+
+/* ───── 五大福利卡片 ───── */
+.stories {
+  margin: 12px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+.stories-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 8px;
+}
+.stories-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.vip-link {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: var(--red);
+}
+.vip-link img {
+  width: 12px;
+  height: 12px;
+}
+.story-track {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px 18px;
+}
+.story {
+  flex: 0 0 50px;
+  text-align: center;
+}
+.story img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  object-fit: cover;
+}
+.story span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.68rem;
+  color: var(--gray);
+  white-space: nowrap;
+}
+
+/* ───── Quick Links ───── */
+.quick-links {
+  padding: 22px 8px 30px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 6px;
+  justify-items: center;
+}
+.link-item {
+  width: 72px;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--gray);
+}
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: 0.15s;
+}
+.icon-circle img {
+  width: 32px;
+  height: 32px;
+}
+.link-item:active .icon-circle {
+  transform: scale(0.93);
+}

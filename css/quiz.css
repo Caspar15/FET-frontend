@@ -1,0 +1,149 @@
+/* =====================================================================
+   quiz.css － 防詐考古題專頁
+   ===================================================================== */
+@import url("../css/base.css");
+
+/* ───── Hero Slider ───── */
+.hero-wrapper {
+  position: relative;
+  padding: 8px 0 24px;
+  background: var(--bg);
+}
+.hero-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.hero-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  height: 180px;
+  padding: 0 12px;
+}
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+/* 圓點：未選中極淺灰 + 35% 透明；選中深灰且放大 1px */
+.hero-dots {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.hero-dots .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  opacity: 0.35;
+  transition: 0.25s;
+}
+.hero-dots .dot.active {
+  width: 7px;
+  height: 7px;
+  background: #666;
+  opacity: 1;
+}
+
+/* 左右箭頭 */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav-btn img {
+  width: 14px;
+  height: 14px;
+  filter: invert(1);
+}
+.prev {
+  left: 8px;
+}
+.next {
+  right: 8px;
+}
+
+/* ───── Big Red Card ───── */
+.section {
+  margin: 16px 12px;
+}
+.big-card {
+  background: var(--red);
+  color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.big-card img {
+  width: 50px;
+  height: 50px;
+}
+.big-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+.big-card small {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+.btn-white {
+  margin-top: 8px;
+  padding: 4px 14px;
+  font-size: 0.75rem;
+  background: #fff;
+  color: var(--red);
+  border: none;
+  border-radius: 12px;
+}
+
+/* ───── Two Small Cards ───── */
+.small-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 16px;
+}
+.small-card {
+  background: #fff;
+  color: var(--gray);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.small-card.red {
+  background: var(--red);
+  color: #fff;
+}
+.small-card img {
+  width: 42px;
+  height: 42px;
+}
+.small-card span {
+  font-size: 0.78rem;
+  line-height: 1.35;
+}

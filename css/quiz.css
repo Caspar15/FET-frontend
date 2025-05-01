@@ -1,14 +1,35 @@
 /* =====================================================================
-   quiz.css － 防詐考古題專頁
+   quiz.css － 防詐考古題專頁（2024-04-07）
    ===================================================================== */
 @import url("../css/base.css");
 
-/* ───── Hero Slider ───── */
+/* ---------------- 公用變數 ---------------- */
+:root {
+  /* Hero */
+  --hero-h: 180px;
+  --hero-h-lg: 220px;
+
+  /* Big red card */
+  --big-gap: 16px;
+
+  /* Small card */
+  --small-img: 42px;
+  --small-gap: 22px;
+}
+
+/* =====================================================================
+      Hero Slider
+      ===================================================================== */
 .hero-wrapper {
   position: relative;
   padding: 8px 0 24px;
   background: var(--bg);
+  scrollbar-width: none; /* Firefox */
 }
+.hero-wrapper::-webkit-scrollbar {
+  display: none;
+} /* Chrome iOS */
+
 .hero-track {
   display: flex;
   overflow-x: auto;
@@ -19,8 +40,14 @@
 .hero-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
-  height: 180px;
+  height: var(--hero-h);
   padding: 0 12px;
+}
+@supports (aspect-ratio: 16/9) {
+  .hero-slide {
+    height: auto;
+    aspect-ratio: 335 / var(--hero-h);
+  } /* 利用 aspect-ratio 填滿 */
 }
 .hero-slide img {
   width: 100%;
@@ -29,7 +56,7 @@
   object-fit: cover;
 }
 
-/* 圓點：未選中極淺灰 + 35% 透明；選中深灰且放大 1px */
+/* 圓點 */
 .hero-dots {
   position: absolute;
   bottom: 6px;
@@ -52,6 +79,10 @@
   background: #666;
   opacity: 1;
 }
+.hero-dots .dot:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
 
 /* 左右箭頭 */
 .nav-btn {
@@ -67,11 +98,21 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.2s;
 }
 .nav-btn img {
   width: 14px;
   height: 14px;
   filter: invert(1);
+}
+.nav-btn:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+.nav-btn:active {
+  transform: translateY(-50%) scale(0.9);
+}
+.nav-btn:focus-visible {
+  outline: 2px solid #fff;
 }
 .prev {
   left: 8px;
@@ -80,10 +121,13 @@
   right: 8px;
 }
 
-/* ───── Big Red Card ───── */
+/* =====================================================================
+      Big Red Card
+      ===================================================================== */
 .section {
   margin: 16px 12px;
 }
+
 .big-card {
   background: var(--red);
   color: #fff;
@@ -92,7 +136,7 @@
   padding: 24px 20px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--big-gap);
 }
 .big-card img {
   width: 50px;
@@ -101,10 +145,12 @@
 .big-card h3 {
   font-size: 1.2rem;
   margin-bottom: 2px;
+  line-height: 1.2;
 }
 .big-card small {
   font-size: 0.8rem;
   opacity: 0.85;
+  display: block;
 }
 .btn-white {
   margin-top: 8px;
@@ -114,14 +160,20 @@
   color: var(--red);
   border: none;
   border-radius: 12px;
+  cursor: pointer;
+}
+.btn-white:active {
+  transform: scale(0.95);
 }
 
-/* ───── Two Small Cards ───── */
+/* =====================================================================
+      Small Cards Grid
+      ===================================================================== */
 .small-grid {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px 16px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--small-gap) 16px;
 }
 .small-card {
   background: #fff;
@@ -134,16 +186,48 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  transition: transform 0.15s;
+}
+.small-card:hover {
+  transform: translateY(-2px);
 }
 .small-card.red {
   background: var(--red);
   color: #fff;
 }
 .small-card img {
-  width: 42px;
-  height: 42px;
+  width: var(--small-img);
+  height: var(--small-img);
 }
 .small-card span {
   font-size: 0.78rem;
   line-height: 1.35;
+}
+
+/* =====================================================================
+      RWD ≥ 768 px
+      ===================================================================== */
+@media (min-width: 768px) {
+  :root {
+    --hero-h: var(--hero-h-lg);
+  }
+
+  .big-card img {
+    width: 64px;
+    height: 64px;
+  }
+  .big-card h3 {
+    font-size: 1.4rem;
+  }
+  .btn-white {
+    font-size: 0.8rem;
+  }
+
+  .small-card img {
+    width: 48px;
+    height: 48px;
+  }
+  .small-card span {
+    font-size: 0.82rem;
+  }
 }

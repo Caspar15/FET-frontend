@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>服務設定</title>
+
+    <!-- 樣式路徑依照你的專案位置調整 -->
+    <link rel="stylesheet" href="../css/setting.css" />
+  </head>
+
+  <body>
+    <!-- ▍Header -------------------------------------------------------------->
+    <header>
+      <!-- 點擊回上一頁（由 JS 綁事件） -->
+      <img
+        src="../assets/icons/setting/back.jpg"
+        alt="返回"
+        id="btn-back"
+        class="header-icon left"
+      />
+
+      <span class="header-title">服務設定</span>
+
+      <img
+        src="../assets/icons/setting/mail.jpg"
+        alt="信箱"
+        class="header-icon right"
+      />
+    </header>
+
+    <!-- ▍內容 ---------------------------------------------------------------->
+    <div class="container">
+      <!-- 設定項目 1 -->
+      <div class="setting-block slide-in">
+        <div class="setting-title">每個月定時打電話</div>
+        <div class="button-group">
+          <div class="toggle-button active">開啟</div>
+          <div class="toggle-button">關閉</div>
+        </div>
+      </div>
+
+      <!-- 設定項目 2 -->
+      <div class="setting-block slide-in delay-1">
+        <div class="setting-title">顯示來電資訊</div>
+        <div class="button-group">
+          <div class="toggle-button">開啟</div>
+          <div class="toggle-button active">關閉</div>
+        </div>
+      </div>
+
+      <!-- 設定項目 3 -->
+      <div class="setting-block slide-in delay-2">
+        <div class="setting-title">訂閱內容</div>
+        <div class="button-group">
+          <div class="toggle-button active">開啟</div>
+          <div class="toggle-button">關閉</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ▍專屬 JS ------------------------------------------------------------->
+    <script src="../js/setting.js"></script>
+  </body>
+</html>

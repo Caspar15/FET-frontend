@@ -1,23 +1,51 @@
 /* Reset + 全站共用變數 / 工具 */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-img{display:block;max-width:100%;height:auto;}
-a{text-decoration:none;color:inherit;}
-
-:root{
-  --red:#d0021b;
-  --gray:#666;
-  --border:#e4e4e4;
-  --bg:#f3f4f6;
-  --radius:8px;
-  --shadow:0 2px 6px rgba(0,0,0,.06);
-  --font:"Helvetica Neue","PingFang TC",sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-body{font-family:var(--font);-webkit-font-smoothing:antialiased;background:var(--bg);}
-.content{padding-bottom:24px;}
+:root {
+  --red: #d0021b;
+  --gray: #666;
+  --border: #e4e4e4;
+  --bg: #f3f4f6;
+  --radius: 8px;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  --font: "Helvetica Neue", "PingFang TC", sans-serif;
+}
 
-.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);}
-.btn-white{
-  margin-top:8px;padding:4px 12px;font-size:.75rem;
-  background:#fff;color:var(--red);border:none;border-radius:12px;
+body {
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  background: var(--bg);
+}
+.content {
+  padding-bottom: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.btn-white {
+  margin-top: 8px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  background: #fff;
+  color: var(--red);
+  border: none;
+  border-radius: 12px;
 }

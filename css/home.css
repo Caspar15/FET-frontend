@@ -1,184 +1,239 @@
+/* ===================================================================
+   home.css – 首頁
+   =================================================================== */
 @import url("./base.css");
 
-/* ───── f 幣列 ───── */
-.coin-row {
+/* ---------- 變數 ---------- */
+:root {
+  --svc-icon: 56px; /* 服務 icon 圓圈 */
+  --svc-gap: 28px; /* 服務左右間距 */
+}
+
+/* ===================================================================
+      Header
+      =================================================================== */
+.line-header {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.line-left {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 10px 12px;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.9rem;
+  gap: 6px;
 }
-.coin-info {
+.msisdn {
+  font-weight: 600;
+}
+.arrow {
+  width: 10px;
+  height: 10px;
+}
+.device {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-right: auto;
-}
-.coin-info img {
-  width: 20px;
-  height: 20px;
-}
-.coin-count {
-  font-weight: 600;
-}
-.coin-link {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--gray);
 }
-.coin-link img {
-  width: 9px;
-  height: 9px;
+.device img {
+  width: 14px;
+  height: 14px;
 }
 
-/* ───── Banner ───── */
-.banner-wrapper {
-  position: relative;
-  background: var(--bg);
-}
-.banner-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-.banner-slide {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  height: 180px;
-  padding: 8px 12px;
-}
-.banner-slide img {
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius);
-  object-fit: cover;
-}
-.banner-dots {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-}
-.dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #d0d0d0;
-  transition: 0.2s;
-}
-.dot.active {
-  background: var(--red);
-}
-.banner-underline {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--border);
-}
-.banner-underline::after {
-  content: "";
-  display: block;
-  width: 56px;
-  height: 3px;
-  background: var(--red);
-  margin: 0 auto -2px;
-}
-
-/* ───── 五大福利卡片 ───── */
-.stories {
+/* ===================================================================
+      帳單卡
+      =================================================================== */
+.bill-card {
   margin: 12px;
+  background: #fff;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  background: #fff;
+  padding: 20px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-.stories-header {
+.bill-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.bill-period {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray);
+  line-height: 1.4;
+}
+.bill-amount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.unit {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.bill-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--red);
+  text-decoration: none;
+}
+.bill-tag .tag-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px 8px;
+  gap: 4px;
 }
-.stories-header h2 {
+.bill-tag img {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-pay {
+  width: 100%;
+  padding: 10px 0;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-pay:active {
+  transform: scale(0.97);
+}
+
+.bill-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn-outline {
+  flex: 1;
+  padding: 8px 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--gray);
+  text-decoration: none;
+}
+
+/* ===================================================================
+      電信常用服務
+      =================================================================== */
+.service-section {
+  margin: 22px 0;
+}
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 8px;
+}
+.service-header h2 {
   font-size: 1rem;
   font-weight: 600;
 }
-.vip-link {
+.more-link {
   display: flex;
   align-items: center;
   gap: 2px;
   font-size: 0.8rem;
-  color: var(--red);
-}
-.vip-link img {
-  width: 12px;
-  height: 12px;
-}
-.story-track {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px 18px;
-}
-.story {
-  flex: 0 0 50px;
-  text-align: center;
-}
-.story img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid var(--red);
-  object-fit: cover;
-}
-.story span {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.68rem;
   color: var(--gray);
-  white-space: nowrap;
+}
+.more-link img {
+  width: 10px;
+  height: 10px;
 }
 
-/* ───── Quick Links ───── */
-.quick-links {
-  padding: 22px 8px 30px;
+.service-scroll {
+  overflow-x: auto;
+  padding: 0 12px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
 }
-.grid {
+.service-scroll::-webkit-scrollbar {
+  display: none;
+}
+/* 兩列 Flow → 橫向滑動 */
+.service-track {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px 6px;
-  justify-items: center;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  column-gap: var(--svc-gap);
+  scroll-snap-align: start;
 }
-.link-item {
-  width: 72px;
-  text-align: center;
-  font-size: 0.74rem;
-  color: var(--gray);
-}
-.icon-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--border);
+
+.svc-item {
+  width: var(--svc-icon);
+  scroll-snap-align: start;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: 0.15s;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 0.72rem;
+  color: var(--gray);
+  position: relative;
 }
-.icon-circle img {
-  width: 32px;
-  height: 32px;
+.svc-item img {
+  width: var(--svc-icon);
+  height: var(--svc-icon);
+  border-radius: 50%;
+  background: #f5f5f5;
+  padding: 8px;
 }
-.link-item:active .icon-circle {
-  transform: scale(0.93);
+.badge {
+  position: absolute;
+  top: -2px;
+  right: 4px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.6rem;
+  padding: 0 4px;
+  border-radius: 8px;
+}
+
+/* ===================================================================
+      我的合約 (佔位)
+      =================================================================== */
+.contract-placeholder {
+  margin: 28px 0 60px;
+  padding: 0 16px;
+}
+.contract-placeholder h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.placeholder {
+  height: 120px;
+  border-radius: var(--radius);
+  background: #e7e7e7;
+}
+
+/* ===================================================================
+      RWD ≥ 768px
+      =================================================================== */
+@media (min-width: 768px) {
+  :root {
+    --svc-icon: 64px;
+  }
+  .svc-item img {
+    padding: 10px;
+  }
+  .svc-item {
+    font-size: 0.78rem;
+  }
+  .bill-amount {
+    font-size: 2.2rem;
+  }
 }

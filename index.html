@@ -1,131 +1,123 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>遠傳用戶福利中心</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>遠傳電信服務首頁</title>
 
-  <!-- 首頁專屬樣式；含 base.css -->
-  <link rel="stylesheet" href="css/home.css" />
-</head>
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
 
-<body>
-  <main class="content">
-
-    <!-- f 幣列 ---------------------------------------------------------------->
-    <section class="coin-row">
-      <div class="coin-info">
-        <img src="assets/icons/common/coin.jpg" alt="f 幣" />
-        <span class="coin-count">0</span>
-      </div>
-
-      <a href="#" class="coin-link">
-        了解更多
-        <img src="assets/icons/common/right-arrow.jpg" alt=">" />
-      </a>
-
-      <a href="#" class="coin-link">
-        遠傳幣兌換區
-        <img src="assets/icons/common/right-arrow.jpg" alt=">" />
-      </a>
-    </section>
-
-    <!-- Banner --------------------------------------------------------------->
-    <section class="banner-wrapper">
-      <div class="banner-track" id="bannerTrack">
-        <div class="banner-slide"><img src="assets/banners/banner1.jpg" alt="Banner 1"></div>
-        <div class="banner-slide"><img src="assets/banners/banner2.jpg" alt="Banner 2"></div>
-        <div class="banner-slide"><img src="assets/banners/banner3.jpg" alt="Banner 3"></div>
-      </div>
-
-      <div class="banner-dots" id="bannerDots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-
-      <span class="banner-underline"></span>
-    </section>
-
-    <!-- 五大福利卡片 ----------------------------------------------------------->
-    <section class="stories">
-      <header class="stories-header">
-        <h2>遠傳用戶五大福利</h2>
-        <a href="#" class="vip-link">
-          超級會員日
-          <img src="assets/icons/common/right-arrow.jpg" alt=">" />
-        </a>
-      </header>
-
-      <div class="story-track">
-        <div class="story">
-          <img src="assets/stories/gift.jpg" alt=""><span>專屬禮</span>
+  <body>
+    <main class="content">
+      <!-- ▍Header -------------------------------------------------------------->
+      <section class="line-header">
+        <div class="line-left">
+          <span class="msisdn">0965 *** 088</span>
+          <img src="assets/icons/home/arrow-right.jpg" alt=">" class="arrow" />
         </div>
-        <div class="story">
-          <img src="assets/stories/video.jpg" alt=""><span>數位影音禮</span>
+
+        <div class="device">
+          <img src="assets/icons/home/gift.jpg" alt="禮物" />
+          1 幣抽 iPhone16 plus
         </div>
-        <div class="story">
-          <img src="assets/stories/ticket.jpg" alt=""><span>超級門票</span>
+      </section>
+
+      <!-- ▍帳單卡片 -------------------------------------------------------------->
+      <section class="bill-card">
+        <header>
+          <span class="bill-period">114 年 4 月<br />最新應繳金額</span>
+          <span class="bill-amount">1,082<span class="unit">元</span></span>
+        </header>
+
+        <a class="bill-tag" href="#">
+          <div class="tag-left">
+            <img src="assets/icons/home/card.jpg" alt="卡" />
+            聯名卡最高多 18% 回饋
+          </div>
+          <img src="assets/icons/home/arrow-right.jpg" alt=">" class="arrow" />
+        </a>
+
+        <button class="btn-pay">前往繳費</button>
+
+        <div class="bill-actions">
+          <a class="btn-outline" href="#">本期帳單明細</a>
+          <a class="btn-outline" href="#">繳其他門號</a>
         </div>
-        <div class="story">
-          <img src="assets/stories/coin.jpg" alt=""><span>遠傳幣好康</span>
+      </section>
+
+      <!-- ▍電信常用服務 ---------------------------------------------------------->
+      <section class="service-section">
+        <div class="service-header">
+          <h2>電信常用服務</h2>
+          <a class="more-link" href="#">
+            更多服務
+            <img src="assets/icons/home/arrow-right.jpg" alt=">" />
+          </a>
         </div>
-        <div class="story">
-          <img src="assets/stories/tel.jpg" alt=""><span>電信優惠</span>
+
+        <!-- 橫向可滑區 -->
+        <div class="service-scroll">
+          <div class="service-track">
+            <!-- 每個 svc-item 一個服務；超過 8 個會水平捲動 -->
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/roaming.jpg" /><span
+                >出國上網</span
+              ></a
+            >
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/friday.jpg" /><span
+                >friDay 影音</span
+              ></a
+            >
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/bill.jpg" /><span
+                >代收服務</span
+              ></a
+            >
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/phone.jpg" /><span
+                >來電答鈴</span
+              ></a
+            >
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/renewal.jpg" /><em
+                class="badge">4</em
+                ><span>續約查詢</span></a
+              ></a
+            >
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/insurance.jpg" /><span
+                >防駭心守護</span
+              ></a
+            >
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/youtube.jpg" /><span
+                >0廣告看YT</span
+              ></a
+            >
+            <a class="svc-item" href="/pages/quiz.html"
+              ><img src="assets/icons/home/services/quiz.jpg" /><span
+                >打詐考古題</span
+              ></a
+            >
+            <a class="svc-item" href="#"
+              ><img src="assets/icons/home/services/location.jpg" /><span
+                >門市據點</span
+              ></a
+            >
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 功能圓圈 ------------------------------------------------------------->
-    <section class="quick-links">
-      <div class="grid">
-        <a class="link-item" href="#">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/ticket.jpg"></div>
-          <span>票券匣</span>
-        </a>
+      <!-- ▍我的合約 (佔位) ------------------------------------------------------>
+      <section class="contract-placeholder">
+        <h2>我的合約</h2>
+        <div class="placeholder"></div>
+      </section>
+    </main>
 
-        <a class="link-item" href="#">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/checkin.jpg"></div>
-          <span>簽到與賺幣</span>
-        </a>
-
-        <!-- 打詐考古題：跳到 quiz.html -->
-        <a class="link-item" href="pages/quiz.html">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/quiz.jpg"></div>
-          <span>打詐考古題</span>
-        </a>
-
-        <a class="link-item" href="#">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/invoice.jpg"></div>
-          <span>發票載具</span>
-        </a>
-
-        <a class="link-item" href="#">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/coin.jpg"></div>
-          <span>送遠傳幣</span>
-        </a>
-
-        <a class="link-item" href="#">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/overseas.jpg"></div>
-          <span>出國購幣</span>
-        </a>
-
-        <a class="link-item" href="#">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/drama.jpg"></div>
-          <span>0 元看新劇</span>
-        </a>
-
-        <a class="link-item" href="#">
-          <div class="icon-circle"><img src="assets/icons/quicklinks/watch.jpg"></div>
-          <span>配件大賞</span>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- 共用 + 首頁 JS -->
-  <script src="js/common.js"></script>
-  <script src="js/home.js"></script>
-</body>
+    <!-- 共用 JS -->
+    <script src="js/common.js"></script>
+  </body>
 </html>

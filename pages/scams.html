@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>遠傳FET</title>
+    <link rel="stylesheet" href="../css/scams.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>遠傳FET</h1>
+        <button class="message-icon" aria-label="聯絡我們">✉</button>
+      </header>
+
+      <!-- 聯絡表單彈出視窗 -->
+      <div class="modal" id="contactModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>聯絡我們</h2>
+            <button class="close-button" aria-label="關閉">&times;</button>
+          </div>
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="companyName"
+                  placeholder="公司名稱"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="contactName"
+                  placeholder="聯絡姓名"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="tel" id="phone" placeholder="聯絡電話" required />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="聯絡mail"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <textarea id="message" placeholder="內容" required></textarea>
+            </div>
+            <div class="form-group full-width">
+              <button type="submit" class="submit-button">送出</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- 提示訊息 -->
+      <div class="toast" id="toast">
+        <div class="toast-content">
+          <div class="toast-message">我們會盡快與您聯繫</div>
+        </div>
+      </div>
+
+      <!-- 測驗結果提示 -->
+      <div class="toast test-result-toast" id="testResultToast">
+        <div class="toast-content">
+          <div class="toast-message"></div>
+        </div>
+      </div>
+
+      <!-- 錯誤提示 -->
+      <div class="toast error-toast" id="errorToast">
+        <div class="toast-content">
+          <div class="toast-message"></div>
+        </div>
+      </div>
+
+      <main>
+        <div class="topic-list">
+          <button class="topic-button" data-topic="business">
+            業務洽談相關事項
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button class="topic-button" data-topic="account">
+            帳戶資料相關問題
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button class="topic-button" data-topic="billing">
+            協助處理帳單問題
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button class="topic-button" data-topic="service">
+            詢問門市服務內容
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button class="topic-button" data-topic="impact">
+            服務受影響的查詢
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button class="topic-button" data-topic="contract">
+            關於合約的注意事項
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button class="topic-button" data-topic="price">
+            想了解最新的資費
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <button class="topic-button" data-topic="purchase">
+            購買新機的相關諮詢
+            <svg
+              class="call-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </main>
+    </div>
+    <script src="../js/scams.js"></script>
+  </body>
+</html>

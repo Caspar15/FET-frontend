@@ -1,0 +1,377 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background-color: white;
+}
+
+.app-container {
+  max-width: 100%;
+  min-height: 100vh;
+  background-color: white;
+}
+
+header {
+  background-color: #e60012;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.message-icon {
+  font-size: 20px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.message-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.topic-list {
+  padding: 12px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #f8f8f8;
+}
+
+.topic-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 15px;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.topic-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #e60012;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* 桌面設備的hover效果 */
+@media (hover: hover) and (pointer: fine) {
+  .topic-button:hover {
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(230, 0, 18, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .topic-button:hover::after {
+    opacity: 1;
+  }
+
+  .topic-button:hover .call-icon {
+    transform: scale(1.1);
+  }
+}
+
+/* 觸控設備的active效果 */
+.topic-button:active {
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(230, 0, 18, 0.15);
+  transform: translateY(0);
+}
+
+.topic-button:active::after {
+  opacity: 1;
+}
+
+.topic-button:active .call-icon {
+  transform: scale(0.95);
+}
+
+.call-icon {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  background-color: #e60012;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+/* 移除 Safari 上的點擊高亮 */
+@media (hover: none) {
+  .topic-button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* iPhone X 和更新的 iPhone 適配 */
+@supports (padding: max(0px)) {
+  .app-container {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  color: #333;
+  font-weight: normal;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.contact-form {
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group.full-width {
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #e60012;
+  background-color: white;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #e60012;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #cc0010;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal {
+    padding: 15px;
+  }
+
+  .modal-content {
+    max-height: 85vh;
+  }
+}
+
+/* Toast Styles */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  z-index: 2000;
+  opacity: 0;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.test-result-toast {
+  bottom: 80px;
+}
+
+.test-result-toast.success {
+  background-color: rgba(40, 167, 69, 0.9);
+}
+
+.test-result-toast.failure {
+  background-color: rgba(220, 53, 69, 0.9);
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-message {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.topic-button {
+  position: relative;
+}
+
+.topic-button.loading .call-icon {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 確保提示框在手機上也能正確顯示 */
+@media (max-width: 480px) {
+  .toast {
+    width: 90%;
+    bottom: 40px;
+  }
+
+  .test-result-toast {
+    bottom: 100px;
+  }
+}
+
+.error-toast {
+  bottom: 140px;
+  background-color: rgba(220, 53, 69, 0.95);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);
+}
+
+.error-toast .toast-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-toast .toast-message::before {
+  content: "⚠️";
+  font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .error-toast {
+    bottom: 160px;
+  }
+}
+
+/* Remove call results styles */

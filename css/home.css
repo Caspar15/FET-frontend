@@ -1,17 +1,18 @@
 /* ===================================================================
-   home.css – 首頁
+   home.css – 首頁（服務 8 顆置中 v2 + 粉漸層合約卡）
    =================================================================== */
 @import url("./base.css");
 
-/* ---------- 變數 ---------- */
+/* ---------- 變數 -------------------------------------------------- */
 :root {
   --svc-icon: 56px; /* 服務 icon 圓圈 */
-  --svc-gap: 28px; /* 服務左右間距 */
+  --svc-gap: 28px; /* 服務左右間距   */
+  --radius: 8px; /* 卡片圓角       */
 }
 
 /* ===================================================================
-      Header
-      =================================================================== */
+         Header
+         =================================================================== */
 .line-header {
   padding: 12px 16px;
   font-size: 0.9rem;
@@ -44,8 +45,8 @@
 }
 
 /* ===================================================================
-      帳單卡
-      =================================================================== */
+         帳單卡
+         =================================================================== */
 .bill-card {
   margin: 12px;
   background: #fff;
@@ -77,7 +78,6 @@
   font-weight: 400;
   margin-left: 2px;
 }
-
 .bill-tag {
   display: flex;
   justify-content: space-between;
@@ -95,7 +95,6 @@
   width: 16px;
   height: 16px;
 }
-
 .btn-pay {
   width: 100%;
   padding: 10px 0;
@@ -110,7 +109,6 @@
 .btn-pay:active {
   transform: scale(0.97);
 }
-
 .bill-actions {
   display: flex;
   gap: 8px;
@@ -127,8 +125,8 @@
 }
 
 /* ===================================================================
-      電信常用服務
-      =================================================================== */
+         電信常用服務
+         =================================================================== */
 .service-section {
   margin: 22px 0;
 }
@@ -154,22 +152,26 @@
   height: 10px;
 }
 
+/* 調整後：左對齊並加大左側留白，避免螢幕縮小時最左邊被切掉，同時整體往中間偏移 */
 .service-scroll {
+  display: flex;
+  justify-content: flex-start;
   overflow-x: auto;
-  padding: 0 12px;
+  padding: 0 16px 0 32px; /* top right bottom left */
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
 }
 .service-scroll::-webkit-scrollbar {
   display: none;
 }
-/* 兩列 Flow → 橫向滑動 */
+
 .service-track {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, auto);
   column-gap: var(--svc-gap);
   scroll-snap-align: start;
+  width: max-content;
 }
 
 .svc-item {
@@ -179,9 +181,9 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  text-decoration: none;
   font-size: 0.72rem;
   color: var(--gray);
+  text-decoration: none;
   position: relative;
 }
 .svc-item img {
@@ -190,6 +192,12 @@
   border-radius: 50%;
   background: #f5f5f5;
   padding: 8px;
+}
+.svc-item span {
+  max-width: 76px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .badge {
   position: absolute;
@@ -203,8 +211,80 @@
 }
 
 /* ===================================================================
-      我的合約 (佔位)
-      =================================================================== */
+         我的合約（粉漸層）
+         =================================================================== */
+.contract-section {
+  margin: 28px 0 60px;
+  padding: 0 16px;
+}
+.contract-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.contract-card {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contract-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  bottom: 55%;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #fde6e6 0%, #ffffff 70%);
+}
+.plan-name,
+.contract-btn,
+.contract-footer {
+  position: relative;
+  z-index: 1;
+}
+.plan-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #a30000;
+}
+.contract-btn {
+  width: 90%;
+  margin: 0 auto;
+  padding: 8px 12px;
+  border: 2px solid var(--red);
+  border-radius: 6px;
+  color: var(--red);
+  font-weight: 600;
+  font-size: 0.86rem;
+  text-align: center;
+  text-decoration: none;
+}
+.contract-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.detail-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gray);
+  text-decoration: none;
+}
+.detail-link img {
+  width: 10px;
+  height: 10px;
+}
+
+/* ===================================================================
+         Placeholder (如果需要)
+         =================================================================== */
 .contract-placeholder {
   margin: 28px 0 60px;
   padding: 0 16px;
@@ -221,8 +301,8 @@
 }
 
 /* ===================================================================
-      RWD ≥ 768px
-      =================================================================== */
+         RWD ≥768px
+         =================================================================== */
 @media (min-width: 768px) {
   :root {
     --svc-icon: 64px;
@@ -233,7 +313,14 @@
   .svc-item {
     font-size: 0.78rem;
   }
+  .svc-item span {
+    max-width: 92px;
+    font-size: 0.78rem;
+  }
   .bill-amount {
     font-size: 2.2rem;
+  }
+  .plan-name {
+    font-size: 1rem;
   }
 }

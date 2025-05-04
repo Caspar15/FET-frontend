@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>遠傳幣兌換區</title>
+
+    <link rel="stylesheet" href="../css/coinExchange.css" />
+    <script src="../js/coinExchange.js" defer></script>
+  </head>
+
+  <body>
+    <!-- ▍Header -->
+    <header class="page-header">
+      <h1 class="page-title">遠傳幣兌換區</h1>
+      <img src="../assets/goods/陳巴雷.png" class="avatar" alt="會員頭像" />
+    </header>
+
+    <!-- ▍Tabs -->
+    <nav class="tabs" role="tablist">
+      <button
+        class="tab-btn active"
+        data-tab="featured"
+        aria-current="page"
+        role="tab"
+      >
+        精選商品
+      </button>
+      <button class="tab-btn" data-tab="brands" role="tab">特選品牌</button>
+    </nav>
+
+    <!-- ▍Banners -->
+    <div class="banner-wrapper">
+      <img
+        src="../assets/goods/topimage.png"
+        class="banner"
+        data-banner="featured"
+        alt="精選商品活動"
+      />
+      <img
+        src="../assets/goods/特選品牌.png"
+        class="banner hidden"
+        data-banner="brands"
+        alt="特選品牌活動"
+      />
+    </div>
+
+    <!-- ▍Filter -->
+    <div class="filter-bar">
+      <select id="product-filter">
+        <option value="all">商品篩選</option>
+        <option value="1coin">1 遠傳幣以下</option>
+        <option value="vip">VIP 專屬</option>
+      </select>
+    </div>
+
+    <!-- ▍Content -->
+    <main>
+      <section id="featured" class="section active" role="tabpanel">
+        <div class="product-grid" data-list="featured"></div>
+      </section>
+
+      <section id="brands" class="section" role="tabpanel">
+        <div class="product-grid" data-list="brands"></div>
+      </section>
+    </main>
+
+    <!-- ▍Template -->
+    <template id="tpl-product-card">
+      <div class="product-card">
+        <img class="product-img" alt="" />
+        <div class="product-info">
+          <p class="product-name"></p>
+          <div class="price-share">
+            <div class="price">
+              <img src="../assets/goods/fcoin.png" class="coin-icon" alt="" />
+              <span class="coin-value"></span>
+              <span class="original-price"></span>
+            </div>
+            <button class="share-btn" type="button">
+              <img src="../assets/goods/share.png" alt="分享" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>

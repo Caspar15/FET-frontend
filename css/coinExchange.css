@@ -1,0 +1,196 @@
+/* ===================================================================
+   coinExchange.css  – 兩欄固定 Grid + 品牌三欄
+   =================================================================== */
+@import url("./base.css");
+
+:root {
+  --gap: 14px;
+  --radius: 8px;
+}
+
+body {
+  margin: 0;
+  background: #f9f9f9;
+  font-family: "PingFang TC", sans-serif;
+}
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Header ---------- */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px;
+}
+.page-title {
+  font: 700 18px/1 "PingFang TC";
+}
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  right: 16px;
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  background: #fff;
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+.tab-btn.active {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* ---------- Banners ---------- */
+.banner-wrapper {
+  margin: 16px auto;
+  width: 94%;
+  max-width: 480px;
+}
+.banner {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Filter ---------- */
+.filter-bar {
+  margin: 0 16px 8px auto;
+  width: max-content;
+}
+#product-filter {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  display: none;
+  padding: 0 16px;
+}
+.section.active {
+  display: block;
+}
+
+/* ===================================================================
+      Product Grid
+      =================================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 固定兩欄 */
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+
+.product-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+.product-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.product-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.product-name {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.price-share {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+.coin-icon {
+  width: 16px;
+  height: 16px;
+}
+.price {
+  display: flex;
+  align-items: center;
+  font: 700 18px/1 "PingFang TC";
+  color: orange;
+  gap: 4px;
+}
+.original-price {
+  font-size: 13px;
+  color: #888;
+  text-decoration: line-through;
+  margin-left: 4px;
+}
+.share-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.share-btn img {
+  width: 28px;
+  height: 24px;
+}
+
+/* ----- Brand 卡僅顯示 Logo + 名稱 ----- */
+#brands .product-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+#brands .product-card {
+  box-shadow: none;
+  background: transparent;
+}
+#brands .product-img {
+  width: 88%;
+  margin: 0 auto;
+  border-radius: 0;
+}
+#brands .product-name {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+#brands .price-share {
+  display: none;
+}
+
+/* ---------- RWD ≥ 768 ---------- */
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #brands .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

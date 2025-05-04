@@ -55,10 +55,5 @@ let timer = setInterval(() => goto(current + 1), 4000);
   btnNext.addEventListener(ev, () => clearInterval(timer));
 });
 
-/* ---------- Big card button ---------- */
-document.getElementById("start-btn").addEventListener("click", () => {
-  alert("開始作答（Demo）");
-});
-
 /* ---------- 初始化 ---------- */
 setActive(0);

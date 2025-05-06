@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>防詐考古題</title>
 
+    <!-- 請確認路徑正確 -->
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/quiz.css" />
   </head>
 
   <body>
     <main class="content">
-      <!-- ▍圖片輪播 -------------------------------------------------------------->
+      <!-- ▍圖片輪播 ------------------------------------------------------------ :contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1} -->
       <section class="hero-wrapper">
         <button class="nav-btn prev">
           <img src="../assets/icons/quiz/left-arrow.jpg" alt="〈" />
@@ -34,34 +35,32 @@
         </button>
 
         <div class="hero-dots" id="heroDots">
-          <span class="dot active"></span><span class="dot"></span
-          ><span class="dot"></span>
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
       </section>
 
-      <!-- ▍大紅卡 --------------------------------------------------------------->
+      <!-- ▍大紅卡：整張卡可點擊 ------------------------------------------------ -->
       <section class="section">
-        <div class="big-card">
+        <a href="scams.html" class="big-card">
           <img src="../assets/icons/quiz/phone.jpg" alt="phone" />
           <div class="info">
             <h3>防詐考古題</h3>
-            <small>Anti‑scam exam</small>
-            <!-- 直接連到 scams.html -->
-            <a href="scams.html" class="btn-white">開始</a>
+            <small>Anti-scam exam</small>
+            <span class="btn-white">開始</span>
           </div>
-        </div>
+        </a>
 
-        <!-- ▍小卡 Grid ---------------------------------------------------------->
+        <!-- ▍小卡 Grid ---------------------------------------------------------- -->
         <div class="small-grid">
           <a class="small-card red" href="setting.html">
-            <img src="../assets/icons/quiz/setting.jpg" alt="" /><span
-              >服務設定</span
-            >
+            <img src="../assets/icons/quiz/setting.jpg" alt="" />
+            <span>服務設定</span>
           </a>
           <a class="small-card" href="coinExchange.html">
-            <img src="../assets/icons/quiz/gift.jpg" alt="" /><span
-              >遠傳幣兌換區</span
-            >
+            <img src="../assets/icons/quiz/gift.jpg" alt="" />
+            <span>遠傳幣兌換區</span>
           </a>
         </div>
       </section>
